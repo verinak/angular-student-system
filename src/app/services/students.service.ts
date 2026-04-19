@@ -27,7 +27,7 @@ export class StudentsService {
     const lastId = Math.max(...currentData.map((student) => student.id));
     const newStudent = {
       ...student,
-      id: lastId ? lastId + 1 : 1,
+      id: currentData.length ? lastId + 1 : 1, // 34an Math.max btraga3 infinity lw empty array
     };
 
     this.studentsSubject.next([...currentData, newStudent]);

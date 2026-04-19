@@ -1,9 +1,13 @@
 <div class="container mt-4">
-  <div class="text-center mt-5" *ngIf="!student; else studentCard">
-    We couldn't find a student with this ID.
-  </div>
+  <ng-container *ngIf="student$ | async as student; else notFound">
+    <app-student-card [student]="student" />
+  </ng-container>
 
-  <ng-template #studentCard>
-    <app-student-card [student]="student!" />
+  <!-- howa actually hay5o4 hena lw el value b null (observable lesa magab4 el data)
+  aw lw b undefined (.find() maraga3et4 7aga) heya hena m4 far2a 34an
+  el data local w m4 bta5od wa2t fl load. bs lw ha3mel loading screen lazem 
+  a handle el 7eta di azon -->
+  <ng-template #notFound>
+    <div class="text-center mt-5">We couldn't find a student with this ID.</div>
   </ng-template>
 </div>

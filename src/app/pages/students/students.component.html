@@ -7,6 +7,9 @@
   </div>
 
   <ng-template #studentTable>
-    <app-student-table [students]="students" />
+    <app-student-table
+      [students]="students"
+      (deleteEmitter)="onDeleteReceived($event)"
+    />
   </ng-template>
 </div>

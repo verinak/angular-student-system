@@ -28,4 +28,9 @@ export class StudentsComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.sub.unsubscribe();
   }
+
+  onDeleteReceived(id: number) {
+    // console.log('delete received', id);
+    this.studentsService.deleteStudent(id);
+  }
 }

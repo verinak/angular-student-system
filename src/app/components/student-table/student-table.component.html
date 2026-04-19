@@ -37,7 +37,11 @@
         </ng-template>
       </td>
       <td>
-        <button type="button" class="btn btn-danger fw-medium rounded-3">
+        <button
+          type="button"
+          class="btn btn-danger fw-medium rounded-3"
+          (click)="handleDelete(student.id)"
+        >
           Delete
         </button>
       </td>

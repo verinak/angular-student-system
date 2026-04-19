@@ -1,11 +1,11 @@
 import { Component, Input } from '@angular/core';
 import { Student } from '../../shared/interfaces/student.interface';
-import { DatePipe, NgIf } from '@angular/common';
+import { DatePipe, NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-student-card',
   standalone: true,
-  imports: [NgIf, DatePipe],
+  imports: [NgClass, DatePipe],
   templateUrl: './student-card.component.html',
   styleUrl: './student-card.component.css',
 })

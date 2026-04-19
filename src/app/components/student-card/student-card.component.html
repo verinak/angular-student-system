@@ -7,15 +7,11 @@
         <small class="text-muted fw-medium">ID: {{ student.id }}</small>
       </div>
       <span
-        class="badge bg-success rounded-4 fs-6 fw-medium"
-        *ngIf="student.isActive; else notActiveBadge"
-        >Active</span
+        class="badge rounded-4 fs-6 fw-medium"
+        [ngClass]="student.isActive ? 'bg-success' : 'bg-secondary'"
       >
-      <ng-template #notActiveBadge>
-        <span class="badge bg-secondary rounded-4 fs-6 fw-medium">
-          Not active</span
-        >
-      </ng-template>
+        {{ student.isActive ? "Active" : "Not active" }}
+      </span>
     </div>
 
     <hr />

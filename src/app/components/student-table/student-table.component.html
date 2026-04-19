@@ -25,16 +25,11 @@
       <td>{{ student.enrollmentDate | date: "shortDate" }}</td>
       <td>
         <span
-          class="badge bg-success fs-6 fw-medium rounded-4"
-          *ngIf="student.isActive; else notActiveBadge"
+          class="badge rounded-4 fs-6 fw-medium"
+          [ngClass]="student.isActive ? 'bg-success' : 'bg-secondary'"
         >
-          Active</span
-        >
-        <ng-template #notActiveBadge>
-          <span class="badge bg-secondary fs-6 fw-medium rounded-4">
-            Not active</span
-          >
-        </ng-template>
+          {{ student.isActive ? "Active" : "Not active" }}
+        </span>
       </td>
       <td>
         <button

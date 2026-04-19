@@ -1,26 +1,41 @@
 <div class="container py-3">
   <h1 class="h3">Add New Student</h1>
-  <form class="mt-4">
+  <form class="mt-4" [formGroup]="studentForm" (ngSubmit)="onSubmit()">
     <div class="row g-3">
       <!-- Basic Info -->
       <div class="col-md-6">
         <label class="form-label">First Name</label>
-        <input type="text" class="form-control" placeholder="Ali" />
+        <input
+          formControlName="firstName"
+          type="text"
+          class="form-control"
+          placeholder="Ali"
+        />
       </div>
 
       <div class="col-md-6">
         <label class="form-label">Last Name</label>
-        <input type="text" class="form-control" placeholder="Hassan" />
+        <input
+          formControlName="lastName"
+          type="text"
+          class="form-control"
+          placeholder="Hassan"
+        />
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Age</label>
-        <input type="number" class="form-control" placeholder="21" />
+        <input
+          formControlName="age"
+          type="number"
+          class="form-control"
+          placeholder="21"
+        />
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Gender</label>
-        <select class="form-select">
+        <select class="form-select" formControlName="gender">
           <option selected disabled>Select gender</option>
           <option>Male</option>
           <option>Female</option>
@@ -29,13 +44,19 @@
 
       <div class="col-md-4">
         <label class="form-label">Level</label>
-        <input type="number" class="form-control" placeholder="3" />
+        <input
+          formControlName="level"
+          type="number"
+          class="form-control"
+          placeholder="3"
+        />
       </div>
 
       <!-- Contact -->
       <div class="col-md-6">
         <label class="form-label">Email</label>
         <input
+          formControlName="email"
           type="email"
           class="form-control"
           placeholder="ali.hassan@email.com"
@@ -44,28 +65,49 @@
 
       <div class="col-md-6">
         <label class="form-label">Phone</label>
-        <input type="text" class="form-control" placeholder="01000000000" />
+        <input
+          formControlName="phone"
+          type="text"
+          class="form-control"
+          placeholder="01000000000"
+        />
       </div>
 
       <!-- Address -->
       <div class="col-12">
         <label class="form-label">Address</label>
-        <input type="text" class="form-control" placeholder="12 Main Street" />
+        <input
+          formControlName="address"
+          type="text"
+          class="form-control"
+          placeholder="12 Main Street"
+        />
       </div>
 
       <div class="col-md-4">
         <label class="form-label">City</label>
-        <input type="text" class="form-control" placeholder="Cairo" />
+        <input
+          formControlName="city"
+          type="text"
+          class="form-control"
+          placeholder="Cairo"
+        />
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Country</label>
-        <input type="text" class="form-control" placeholder="Egypt" />
+        <input
+          formControlName="country"
+          type="text"
+          class="form-control"
+          placeholder="Egypt"
+        />
       </div>
 
       <div class="col-md-4">
         <label class="form-label">Department</label>
         <input
+          formControlName="department"
           type="text"
           class="form-control"
           placeholder="Computer Science"
@@ -76,6 +118,7 @@
       <div class="col-md-4">
         <label class="form-label">GPA</label>
         <input
+          formControlName="GPA"
           type="number"
           step="0.01"
           class="form-control"
@@ -85,19 +128,34 @@
 
       <div class="col-md-4">
         <label class="form-label">Enrollment Date</label>
-        <input type="date" class="form-control" />
+        <input
+          formControlName="enrollmentDate"
+          type="date"
+          class="form-control"
+        />
       </div>
 
       <div class="col-md-4 d-flex align-items-end">
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="activeCheck" />
+          <input
+            formControlName="isActive"
+            class="form-check-input"
+            type="checkbox"
+            id="activeCheck"
+          />
           <label class="form-check-label" for="activeCheck"> Active </label>
         </div>
       </div>
 
       <!-- Submit -->
       <div class="col-12 text-end">
-        <button type="submit" class="btn btn-primary">Save Student</button>
+        <button
+          type="submit"
+          class="btn btn-primary rounded-5"
+          [disabled]="studentForm.invalid"
+        >
+          Save Student
+        </button>
       </div>
     </div>
   </form>

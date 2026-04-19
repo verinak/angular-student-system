@@ -1,0 +1,54 @@
+<table class="table table-striped table-hover">
+  <thead class="">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Department</th>
+      <th>Level</th>
+      <th>GPA</th>
+      <th>Enrolled</th>
+      <th>Status</th>
+      <th class="colspan-2"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students" class="align-middle">
+      <td>{{ student.id }}</td>
+      <td class="text-nowrap">
+        {{ student.firstName }} {{ student.lastName }}
+      </td>
+      <td>{{ student.email }}</td>
+      <td>{{ student.department }}</td>
+      <td>{{ student.level }}</td>
+      <td>{{ student.GPA }}</td>
+      <td>{{ student.enrollmentDate | date: "shortDate" }}</td>
+      <td>
+        <span
+          class="badge bg-success fs-6 fw-medium rounded-4"
+          *ngIf="student.isActive; else notActiveBadge"
+        >
+          Active</span
+        >
+        <ng-template #notActiveBadge>
+          <span class="badge bg-secondary fs-6 fw-medium rounded-4">
+            Not active</span
+          >
+        </ng-template>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger fw-medium rounded-3">
+          Delete
+        </button>
+      </td>
+      <td>
+        <a
+          [routerLink]="['/student', student.id]"
+          class="btn btn-outline-primary fw-medium rounded-3"
+        >
+          Details
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

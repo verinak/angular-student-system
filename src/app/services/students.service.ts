@@ -10,7 +10,12 @@ export class StudentsService {
   private studentsSubject = new BehaviorSubject<Student[]>([]);
   students$ = this.studentsSubject.asObservable(); // create students observable
 
-  constructor() {}
+  constructor() {
+    // get saved data from localstorage
+    const savedData = localStorage.getItem('students');
+    console.log(savedData ? JSON.parse(savedData) : []);
+    this.studentsSubject.next(savedData ? JSON.parse(savedData) : []);
+  }
 
   getStudents() {
     return this.students$;
@@ -26,12 +31,24 @@ export class StudentsService {
     };
 
     this.studentsSubject.next([...currentData, newStudent]);
+
+    // update localstorage
+    localStorage.setItem(
+      'students',
+      JSON.stringify(this.studentsSubject.value),
+    );
   }
 
   deleteStudent(id: number) {
     const currentData = this.studentsSubject.value;
     this.studentsSubject.next(
       currentData.filter((student) => student.id !== id),
+    );
+
+    // update localstorage
+    localStorage.setItem(
+      'students',
+      JSON.stringify(this.studentsSubject.value),
     );
   }
 }

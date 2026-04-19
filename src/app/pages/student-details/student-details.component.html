@@ -1,1 +1,9 @@
-<p>student-details works! id: {{ id }}</p>
+<div class="container mt-4">
+  <div class="text-center mt-5" *ngIf="!student; else studentCard">
+    We couldn't find a student with this ID.
+  </div>
+
+  <ng-template #studentCard>
+    <app-student-card [student]="student!" />
+  </ng-template>
+</div>

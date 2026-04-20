@@ -52,7 +52,7 @@ export class AddStudentComponent {
         ...this.studentForm.value,
         enrollmentDate: new Date(this.studentForm.value.enrollmentDate),
       };
-      console.log(student);
+      // console.log(student);
       this.studentService.addStudent(student);
     }
   }

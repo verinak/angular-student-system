@@ -13,7 +13,7 @@ export class StudentsService {
   constructor() {
     // get saved data from localstorage
     const savedData = localStorage.getItem('students');
-    console.log(savedData ? JSON.parse(savedData) : []);
+    // console.log(savedData ? JSON.parse(savedData) : []);
     this.studentsSubject.next(savedData ? JSON.parse(savedData) : []);
   }
 

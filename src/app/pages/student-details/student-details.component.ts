@@ -23,6 +23,6 @@ export class StudentDetailsComponent {
     );
 
   constructor(private studentsService: StudentsService) {
-    console.log(this.student$);
+    // console.log(this.student$);
   }
 }

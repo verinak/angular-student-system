@@ -5,7 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build --configuration production --base-href \"https://verinak.github.io/angular-student-system/\"",
-    "deploy": "npx angular-cli-ghpages --dir=dist/student-system",
+    "deploy": "npx angular-cli-ghpages --dir=dist/student-system/browser",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:student-system": "node dist/student-system/server/server.mjs"

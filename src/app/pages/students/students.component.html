@@ -1,22 +1,29 @@
-<div
-  class="py-3 vw-100 overflow-x-scroll"
-  *ngIf="students$ | async as students"
->
+<div class="py-3 vw-100" *ngIf="students$ | async as students">
+  <div class="mb-4 px-2 row w-100">
+    <h1 class="h3 col-12 col-md-6">Registered Students</h1>
+    <div class="col-12 col-md-6">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search.."
+        (input)="onSearchInput($event)"
+      />
+    </div>
+  </div>
+
   <div
     class="text-center mt-5"
     *ngIf="students.length === 0; else studentTable"
   >
-    No students added! Add students to the system first.
+    No students found.
   </div>
 
   <ng-template #studentTable>
-    <div class="mb-4 px-2">
-      <h1 class="h3">Registered Students</h1>
+    <div class="w-100 overflow-x-scroll">
+      <app-student-table
+        [students]="students"
+        (deleteEmitter)="onDeleteReceived($event)"
+      />
     </div>
-    <app-student-table
-      [students]="students"
-      (deleteEmitter)="onDeleteReceived($event)"
-    />
   </ng-template>
 </div>
-div

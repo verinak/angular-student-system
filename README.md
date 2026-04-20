@@ -1,27 +1,21 @@
-# StudentSystem
+# Student Management System
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+A simple Student Management System made in Angular that allows users to perform CRUD operations on local student data.
+View working demo [here](https://verinak.github.io/angular-student-system/)
 
-## Development server
+## Technologies
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Angular 16
+- TypeScript
+- HTML5
+- CSS3
+- Bootstrap CSS
+-
 
-## Code scaffolding
+## Key Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- Comprehensive Student Dashboard: Displays a list of all students in a responsive table format.
+- Reactive Data Management: Utilizes BehaviorSubject and Observables within a dedicated service to handle real-time data sharing across components.
+- Dynamic Routing: Includes a structured navigation system with routes for Home, Student List, Add Student, and individual Student Details.
+- Component Communication: Implements @Input and @Output (EventEmitter) patterns for clean data flow between parent and child components.
+- Asynchronous Rendering: Leverages the Async Pipe to manage data streams directly within the templates.

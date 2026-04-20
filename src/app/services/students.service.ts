@@ -12,7 +12,10 @@ export class StudentsService {
 
   constructor() {
     // get saved data from localstorage
-    const savedData = localStorage.getItem('students');
+    let savedData: string | null = '';
+    if (typeof window !== 'undefined') {
+      savedData = localStorage.getItem('students');
+    }
     // console.log(savedData ? JSON.parse(savedData) : []);
     this.studentsSubject.next(savedData ? JSON.parse(savedData) : []);
   }

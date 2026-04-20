@@ -1,7 +1,0 @@
-{
-  "routes": [
-    "/add-student",
-    "/home",
-    "/students"
-  ]
-}
